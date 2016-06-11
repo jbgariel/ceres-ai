@@ -1,0 +1,2 @@
+ipython==4.0.0
+werkzeug==0.10.4
