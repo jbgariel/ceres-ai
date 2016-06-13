@@ -1,9 +1,10 @@
 <!doctype html>
+<!-- <html ng-app="app">-->
 <html class="no-js">
   <head>
     <base href="/">
     <meta charset="utf-8">
-    <title>djng</title>
+    <title>Ceres</title>
     <meta name="description" content="">
     <meta name="HandheldFriendly" content="True">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
@@ -19,23 +20,44 @@
     <meta name="msapplication-TileImage" content="static/images/touch/apple-touch-icon-144x144.png">
     <meta name="msapplication-TileColor" content="#222222">
     <!-- build:css(.tmp) static/styles/main.css -->
-    <link rel="stylesheet" href="static/styles/main.css">
+    <link rel="stylesheet" href="static/css/main.css" />
+
     <!-- endbuild -->
   </head>
-  <body ng-app="clientApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  <body ng-app="app">
+
+    <div class="jumbotron">
+        <div class="container">
+            <div class="col-sm-8 col-sm-offset-2">
+                <div ng-class="{ 'alert': flash, 'alert-success': flash.type === 'success', 'alert-danger': flash.type === 'error' }" ng-if="flash" ng-bind="flash.message"></div>
+                <div ng-view></div>
+            </div>
+        </div>
+    </div>
 
     <!-- Add your site or application content here -->
-    <div class="site-wrapper" ui-view></div>
+    <div class="site-wrapper" ui-view> </div>
 
-    <!-- build:js(app) static/scripts/oldieshim.js -->
-    <!--[if lt IE 9]>
-    <script src="static/bower_components/es5-shim/es5-shim.js"></script>
-    <script src="static/bower_components/json3/lib/json3.js"></script>
-    <![endif]-->
-    <!-- endbuild -->
+    <!-- Footer -->
+    <section id="footer">
+      <ul class="icons">
+        <li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
+        <li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+        <li><a href="#" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+        <li><a href="#" class="icon alt fa-github"><span class="label">GitHub</span></a></li>
+        <li><a href="#" class="icon alt fa-envelope"><span class="label">Email</span></a></li>
+      </ul>
+      <ul class="copyright">
+        <li>&copy; jibsgrl</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+      </ul>
+    </section>
+
+    <!-- Scripts -->
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/jquery.scrolly.min.js"></script>
+    <script src="static/js/skel.min.js"></script>
+    <script src="static/js/util.js"></script>
+    <script src="static/js/main.js"></script>
 
     <!-- build:js(app) static/scripts/vendor.js -->
     <script src="static/bower_components/lodash/lodash.js"></script>
@@ -50,9 +72,23 @@
     <script src="static/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <!-- endbuild -->
 
+    <script src="app-services/authentication.service.js"></script>
+    <script src="app-services/flash.service.js"></script>
+
+    <!-- Real user service that uses an api -->
+    <!-- <script src="app-services/user.service.js"></script> -->
+
+    <!-- Fake user service for demo that uses local storage -->
+    <script src="app-services/user.service.local-storage.js"></script>
+
     <!-- build:js({.tmp,app}) static/scripts/scripts.js -->
     <script src="static/scripts/app.js"></script>
     <script src="static/scripts/controllers/main.js"></script>
+    <script src="static/scripts/controllers/home.js"></script>
+    <script src="static/scripts/controllers/suscribe.js"></script>
+    <script src="static/scripts/controllers/login.js"></script>
     <!-- endbuild -->
 </body>
+
+
 </html>
